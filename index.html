@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.50, user-scalable=no, maximum-scale=1.0, minimum-scale=0.25">
+  <meta name="description" content="PDF Master AI – 250+ AI-Powered PDF Tools by Badsha Bilal 👑 | Create, Edit, Convert, OCR, E-Sign">
+  <meta name="theme-color" content="#6C63FF">
+  <title>PDF Master AI | 250+ Features • AI PDF Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6C63FF;
+      --primary-dark: #554fd8;
+      --primary-light: #8B85FF;
+      --secondary: #FF6584;
+      --dark: #1A1A2E;
+      --dark-light: #2D3047;
+      --dark-lighter: #3D4058;
+      --light: #F8F9FA;
+      --gray: #6C757D;
+      --success: #2ECC71;
+      --warning: #F39C12;
+      --danger: #E74C3C;
+      --info: #3498DB;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.2);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="light"] {
+      --dark: #F0F2F5;
+      --dark-light: #FFFFFF;
+      --dark-lighter: #E8EAED;
+      --light: #1A1A2E;
+      --gray: #6C757D;
+      --glass: rgba(0, 0, 0, 0.03);
+      --glass-border: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--dark-light);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    #particlesCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    header {
+      background: rgba(26, 26, 46, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      position: fixed;
+      width: 100%;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      padding: 15px 0;
+      border-radius: 50px;
+      max-width: 95%;
+      transition: var(--transition);
+      border: 1px solid var(--glass-border);
+    }
+
+    header.scrolled {
+      top: 0;
+      max-width: 100%;
+      border-radius: 0;
+      background: rgba(26, 26, 46, 0.95);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+    .logo span {
+      color: var(--primary);
+    }
+    .logo-badge {
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      background: var(--secondary);
+      color: white;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 20px;
+      animation: pulse 2s infinite;
+    }
+    .copyright-small {
+      font-size: 9px;
+      color: var(--gray);
+      position: absolute;
+      bottom: -18px;
+      left: 0;
+      white-space: nowrap;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: var(--transition);
+      position: relative;
+      padding: 5px 0;
+      cursor: pointer;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after, .nav-links a.active::after {
+      width: 100%;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--dark-lighter);
+      border-radius: 50px;
+      padding: 10px 18px;
+      width: 280px;
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+    .search-box:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+    }
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--light);
+      width: 100%;
+      margin-left: 10px;
+      font-size: 14px;
+    }
+    .search-box input::placeholder {
+      color: var(--gray);
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    .btn-small {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+    .btn-danger {
+      background: linear-gradient(135deg, var(--danger), #c0392b);
+      color: white;
+    }
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+    }
+    .btn-email {
+      background: linear-gradient(135deg, #EA4335, #B31412);
+      color: white;
+    }
+
+    .hero {
+      margin-top: 140px;
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), #00D2FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradientMove 3s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .hero-badge {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+    }
+    .hero-badge:nth-child(1) { animation-delay: 0.1s; }
+    .hero-badge:nth-child(2) { animation-delay: 0.2s; }
+    .hero-badge:nth-child(3) { animation-delay: 0.3s; }
+    .hero-badge:nth-child(4) { animation-delay: 0.4s; }
+    .hero-badge:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      text-align: center;
+      background: var(--glass);
+      padding: 35px 30px;
+      border-radius: var(--radius);
+      border: 1px solid var(--glass-border);
+      min-width: 180px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .stat-item:hover::before {
+      opacity: 1;
+    }
+    .stat-item:hover {
+      transform: translateY(-12px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(108, 99, 255, 0.3);
+    }
+    .stat-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 60px;
+    }
+    .category-card {
+      background: var(--glass);
+      border-radius: var(--radius-sm);
+      padding: 25px 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+    }
+    .category-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 30px rgba(108, 99, 255, 0.3);
+    }
+    .category-card i {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+    .category-card:hover i {
+      transform: scale(1.2);
+    }
+    .category-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .category-card small {
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .feature-card {
+      background: var(--dark-light);
+      border-radius: var(--radius);
+      padding: 25px 15px;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      border-color: var(--primary);
+    }
+    .feature-card .feat-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+    .feature-card:hover .feat-icon {
+      transform: scale(1.2);
+    }
+    .feature-card h4 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .feature-card small {
+      font-size: 10px;
+      color: var(--gray);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    .pricing-card {
+      background: var(--dark-light);
+      border-radius: var(--radius);
+      padding: 40px 25px;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
+    }
+    .pricing-card:hover {
+      transform: translateY(-10px);
+    }
+    .pricing-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .pricing-card .price {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 20px 0;
+    }
+    .pricing-card .price small {
+      font-size: 16px;
+      color: var(--gray);
+    }
+    .pricing-card ul {
+      list-style: none;
+      text-align: left;
+      margin: 25px 0;
+      padding: 0;
+    }
+    .pricing-card ul li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--gray);
+    }
+    .pricing-card ul li i {
+      color: var(--success);
+      margin-right: 8px;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background: var(--dark-light);
+      padding: 40px;
+      border-radius: var(--radius);
+      width: 95%;
+      max-width: 700px;
+      position: relative;
+      border: 1px solid var(--glass-border);
+      max-height: 90vh;
+      overflow-y: auto;
+      line-height: 1.8;
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--danger);
+      border: none;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      transition: var(--transition);
+    }
+    .close-modal:hover {
+      transform: rotate(90deg);
+    }
+
+    footer {
+      background: rgba(26, 26, 46, 0.95);
+      padding: 60px 0 30px;
+      border-top: 1px solid var(--glass-border);
+      margin-top: 40px;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    .footer-column h3 {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .footer-column ul {
+      list-style: none;
+    }
+    .footer-column ul li {
+      margin-bottom: 12px;
+    }
+    .footer-column ul li a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .footer-column ul li a:hover {
+      color: var(--primary);
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid var(--glass-border);
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+      background: var(--dark-light);
+      border: 1px solid var(--glass-border);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: var(--light);
+    }
+    .theme-toggle:hover {
+      transform: rotate(180deg);
+      border-color: var(--primary);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .highlight-box {
+      background: var(--dark);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin: 15px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .stats { gap: 15px; }
+      .stat-item { min-width: 130px; padding: 20px 15px; }
+      .stat-number { font-size: 28px; }
+      .feature-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+      .nav-container { flex-direction: column; align-items: stretch; }
+      .search-box { width: 100%; }
+      .categories { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <canvas id="particlesCanvas"></canvas>
+  <button class="theme-toggle" id="themeToggle" title="Switch Theme"><i class="fas fa-moon"></i></button>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="privacyModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('privacyModal')">&times;</button>
+      <h1><i class="fas fa-shield-alt"></i> Privacy Policy</h1>
+      <p>Last updated: 2025</p>
+      <h2>1. Information We Collect</h2>
+      <p>We collect email, username, and PDF documents you upload for processing. We do NOT sell your data.</p>
+      <h2>2. How We Use Data</h2>
+      <p>PDF files are processed securely and deleted after processing. AI features use encrypted connections.</p>
+      <h2>3. Data Protection</h2>
+      <p>AES-256 encryption for all files. GDPR compliant. You can request data deletion anytime.</p>
+    </div>
+  </div>
+  <div class="modal-overlay" id="termsModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('termsModal')">&times;</button>
+      <h1><i class="fas fa-file-contract"></i> Terms of Service</h1>
+      <p>By using PDF Master AI, you agree to:</p>
+      <ul><li>Not upload illegal content</li><li>Respect copyright laws</li><li>Use AI features responsibly</li><li>Not abuse the API</li></ul>
+      <h2>Service Availability</h2><p>99.9% uptime guaranteed. Maintenance announced in advance.</p>
+    </div>
+  </div>
+  <div class="modal-overlay" id="licenseModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('licenseModal')">&times;</button>
+      <h1><i class="fas fa-certificate"></i> License</h1>
+      <p>PDF Master AI © 2025 Badsha Bilal 👑</p>
+      <h2>Personal Use</h2><p>Free plan: Watermarked PDFs. Personal use only.</p>
+      <h2>Commercial Use</h2><p>Pro & Business plans include commercial license.</p>
+      <h2>API License</h2><p>API usage subject to rate limits and fair use policy.</p>
+    </div>
+  </div>
+  <div class="modal-overlay" id="helpModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('helpModal')">&times;</button>
+      <h1><i class="fas fa-question-circle"></i> Help Center</h1>
+      <h2>📄 Basic PDF Tools</h2><p><strong>Merge PDF:</strong> Upload multiple PDFs → Click "Merge" → Download combined file.</p>
+      <p><strong>Compress:</strong> Upload PDF → Select quality → AI optimizes size.</p>
+      <h2>🤖 AI Features</h2><p><strong>Chat with PDF:</strong> Upload PDF → Ask questions in chat → AI answers from document.</p>
+      <p><strong>Summarize:</strong> Upload PDF → AI extracts key points → Get summary in seconds.</p>
+      <h2>🔒 Security</h2><p><strong>Password Protect:</strong> Open PDF → Set password → AES encrypted output.</p>
+      <h2>✍️ E-Signature</h2><p><strong>Sign PDF:</strong> Upload → Draw/upload signature → Place on document → Legal timestamp.</p>
+      <div class="contact-links">
+        <a href="mailto:bilalafghan546@gmail.com" class="btn btn-email"><i class="fas fa-envelope"></i> bilalafghan546@gmail.com</a>
+        <a href="https://wa.me/93789380279" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> +93 789 380 279</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('contactModal')">&times;</button>
+      <h1><i class="fas fa-address-book"></i> Contact Us</h1>
+      <p>Created by <strong>Badsha Bilal 👑</strong></p>
+      <div class="contact-links">
+        <a href="mailto:bilalafghan546@gmail.com" class="btn btn-email"><i class="fas fa-envelope"></i> bilalafghan546@gmail.com</a>
+        <a href="https://wa.me/93789380279" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> +93 789 380 279</a>
+      </div>
+      <h2 style="margin-top:25px;">Support Hours</h2><p>Monday - Saturday: 9AM - 9PM (Afghanistan Time)</p><p>Response time: Within 2 hours</p>
+    </div>
+  </div>
+
+  <header id="mainHeader">
+    <div class="container nav-container">
+      <a href="#" class="logo" onclick="scrollToTop()">
+        <i class="fas fa-file-pdf"></i>PDF<span>Master</span><span class="logo-badge">AI</span>
+        <span class="copyright-small">© Badsha Bilal 👑</span>
+      </a>
+      <div class="nav-links">
+        <a href="#" class="active" onclick="scrollToTop()">Home</a>
+        <a href="#" onclick="scrollToSection('featuresSection')">Features</a>
+        <a href="#" onclick="scrollToSection('pricingSection')">Pricing</a>
+        <a href="#" onclick="scrollToSection('apiSection')">💻 Developer API</a>
+        <a href="#" onclick="openModal('contactModal')">Contact</a>
+      </div>
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search 250+ PDF tools..." oninput="filterFeatures(this.value)">
+        <i class="fas fa-times" id="clearSearch" style="cursor:pointer;display:none;" onclick="clearSearch()"></i>
+      </div>
+      <div>
+        <button class="btn btn-outline btn-small" style="margin-right:8px;"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="btn btn-primary btn-small"><i class="fas fa-rocket"></i> Start Free</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="hero-badges">
+      <span class="hero-badge"><i class="fas fa-check-circle" style="color:var(--success);"></i> 250+ Features</span>
+      <span class="hero-badge"><i class="fas fa-check-circle" style="color:var(--success);"></i> AI Powered</span>
+      <span class="hero-badge"><i class="fas fa-check-circle" style="color:var(--success);"></i> OCR Pro</span>
+      <span class="hero-badge"><i class="fas fa-check-circle" style="color:var(--success);"></i> E-Signature</span>
+      <span class="hero-badge"><i class="fas fa-check-circle" style="color:var(--success);"></i> Cloud Sync</span>
+    </div>
+    <h1>AI-Powered PDF Platform</h1>
+    <p>Create, edit, convert, summarize, OCR, e-sign & automate PDFs. Like Adobe Acrobat + iLovePDF + Smallpdf + Canva — but with <strong style="color:var(--primary);">stronger AI & automation</strong>. Built by <strong style="color:var(--primary);">Badsha Bilal 👑</strong>.</p>
+    <div class="stats">
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-cogs" style="color:var(--primary);"></i></div><div class="stat-number">250+</div><div class="stat-label">Total Features</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-robot" style="color:var(--secondary);"></i></div><div class="stat-number">30+</div><div class="stat-label">AI Tools</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-eye" style="color:var(--success);"></i></div><div class="stat-number">99%</div><div class="stat-label">OCR Accuracy</div></div>
+      <div class="stat-item"><div class="stat-icon"><i class="fas fa-cloud-upload-alt" style="color:var(--info);"></i></div><div class="stat-number">5GB</div><div class="stat-label">Cloud Storage</div></div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section style="margin-bottom: 50px;">
+      <div style="background: var(--dark-light); border-radius: var(--radius); padding: 40px; border: 1px solid var(--glass-border); text-align: center;">
+        <h2 style="font-size: 28px; margin-bottom: 10px;"><i class="fas fa-magic" style="color: var(--primary);"></i> Smart Workflow</h2>
+        <p style="color: var(--gray); margin-bottom: 25px;">Upload PDF → AI scans → Summarizes → Extracts tables → Converts → Adds signature → Compresses → Exports → Uploads to cloud automatically</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+          <span class="hero-badge" style="animation: none; opacity: 1;"><i class="fas fa-upload"></i> Upload</span>
+          <span class="hero-badge" style="animation: none; opacity: 1;"><i class="fas fa-brain"></i> AI Analyze</span>
+          <span class="hero-badge" style="animation: none; opacity: 1;"><i class="fas fa-file-export"></i> Convert</span>
+          <span class="hero-badge" style="animation: none; opacity: 1;"><i class="fas fa-signature"></i> Sign</span>
+          <span class="hero-badge" style="animation: none; opacity: 1;"><i class="fas fa-cloud-upload-alt"></i> Cloud</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2><i class="fas fa-star" style="color:var(--warning);"></i> Killer Features</h2></div>
+      <div class="categories">
+        <div class="category-card"><i class="fas fa-comments"></i><h3>AI Chat with PDF</h3><small>Ask anything from PDF</small></div>
+        <div class="category-card"><i class="fas fa-book-reader"></i><h3>AI Notes from Books</h3><small>Auto summarize</small></div>
+        <div class="category-card"><i class="fas fa-video"></i><h3>YouTube → PDF</h3><small>Transcript to PDF</small></div>
+        <div class="category-card"><i class="fas fa-globe"></i><h3>Website → PDF</h3><small>1-click capture</small></div>
+        <div class="category-card"><i class="fas fa-file-alt"></i><h3>AI Resume Creator</h3><small>Auto generate</small></div>
+        <div class="category-card"><i class="fas fa-gavel"></i><h3>Legal Doc Analysis</h3><small>AI powered review</small></div>
+        <div class="category-card"><i class="fas fa-paint-brush"></i><h3>Drag & Drop Editor</h3><small>Canva-style design</small></div>
+        <div class="category-card"><i class="fas fa-sliders-h"></i><h3>Auto Design System</h3><small>AI formatting</small></div>
+        <div class="category-card"><i class="fas fa-qrcode"></i><h3>QR Code Generator</h3><small>For PDFs</small></div>
+        <div class="category-card"><i class="fas fa-file-signature"></i><h3>E-Signature Pro</h3><small>Legal signing</small></div>
+      </div>
+    </section>
+
+    <section id="featuresSection">
+      <div class="section-title"><h2><i class="fas fa-list-check" style="color:var(--success);"></i> All 250+ Features</h2></div>
+      <div id="allFeaturesContainer"></div>
+    </section>
+
+    <section style="margin-bottom: 50px;">
+      <div class="section-title"><h2><i class="fas fa-layer-group" style="color:var(--primary-light);"></i> Tech Stack</h2></div>
+      <div class="categories">
+        <div class="category-card"><i class="fab fa-react"></i><h3>Next.js</h3><small>Frontend</small></div>
+        <div class="category-card"><i class="fab fa-python"></i><h3>FastAPI</h3><small>Backend</small></div>
+        <div class="category-card"><i class="fab fa-golang"></i><h3>Go</h3><small>Microservices</small></div>
+        <div class="category-card"><i class="fas fa-cog"></i><h3>Rust</h3><small>Heavy Processing</small></div>
+        <div class="category-card"><i class="fas fa-database"></i><h3>PostgreSQL</h3><small>Database</small></div>
+        <div class="category-card"><i class="fas fa-cloud"></i><h3>Cloudflare R2</h3><small>Storage</small></div>
+      </div>
+    </section>
+
+    <section id="apiSection" style="margin-bottom: 50px;">
+      <div class="section-title"><h2><i class="fas fa-code" style="color:var(--info);"></i> 💻 Developer API</h2></div>
+      <div style="background: var(--dark-light); border-radius: var(--radius); padding: 30px; border: 1px solid var(--glass-border); margin-bottom: 30px;">
+        <p style="font-size: 18px; margin-bottom: 20px;">Integrate PDF Master AI into your apps with our powerful REST API and SDKs.</p>
+        <div class="categories">
+          <div class="category-card"><i class="fas fa-plug"></i><h3>REST API</h3><small>Full access</small></div>
+          <div class="category-card"><i class="fas fa-brain"></i><h3>AI API</h3><small>GPT powered</small></div>
+          <div class="category-card"><i class="fas fa-file-pdf"></i><h3>PDF Generation</h3><small>Dynamic</small></div>
+          <div class="category-card"><i class="fas fa-eye"></i><h3>OCR API</h3><small>Extract text</small></div>
+          <div class="category-card"><i class="fas fa-link"></i><h3>Webhooks</h3><small>Automation</small></div>
+          <div class="category-card"><i class="fas fa-code-branch"></i><h3>SDK Support</h3><small>Multi-language</small></div>
+          <div class="category-card"><i class="fab fa-python"></i><h3>Python SDK</h3><small>pip install</small></div>
+          <div class="category-card"><i class="fab fa-node-js"></i><h3>Node.js SDK</h3><small>npm install</small></div>
+          <div class="category-card"><i class="fas fa-tachometer-alt"></i><h3>Rate Limiting</h3><small>Fair use</small></div>
+          <div class="category-card"><i class="fas fa-chart-bar"></i><h3>API Analytics</h3><small>Usage tracking</small></div>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <h3><i class="fas fa-key"></i> API Pricing</h3>
+        <p><strong>Free:</strong> 100 requests/day | <strong>Pro:</strong> 10,000 requests/day | <strong>Business:</strong> Unlimited + White-label</p>
+      </div>
+    </section>
+
+    <section id="pricingSection">
+      <div class="section-title"><h2><i class="fas fa-tag" style="color:var(--secondary);"></i> Simple Pricing</h2></div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3><i class="fas fa-paper-plane"></i> Free</h3>
+          <div class="price">$0<small>/mo</small></div>
+          <ul><li><i class="fas fa-check"></i> 5 PDFs / day</li><li><i class="fas fa-check"></i> Basic AI features</li><li><i class="fas fa-check"></i> Watermark on output</li><li><i class="fas fa-check"></i> 100 API requests/day</li></ul>
+          <button class="btn btn-outline" style="width:100%;">Get Started Free</button>
+        </div>
+        <div class="pricing-card featured">
+          <h3><i class="fas fa-crown"></i> Pro</h3>
+          <div class="price">$12<small>/mo</small></div>
+          <ul><li><i class="fas fa-check"></i> Unlimited PDFs</li><li><i class="fas fa-check"></i> Full AI features</li><li><i class="fas fa-check"></i> Advanced OCR</li><li><i class="fas fa-check"></i> 10,000 API requests/day</li><li><i class="fas fa-check"></i> No watermark</li></ul>
+          <button class="btn btn-primary" style="width:100%;">Start Pro</button>
+        </div>
+        <div class="pricing-card">
+          <h3><i class="fas fa-building"></i> Business</h3>
+          <div class="price">$29<small>/mo</small></div>
+          <ul><li><i class="fas fa-check"></i> Team collaboration</li><li><i class="fas fa-check"></i> White-label</li><li><i class="fas fa-check"></i> Unlimited API</li><li><i class="fas fa-check"></i> Enterprise support</li></ul>
+          <button class="btn btn-outline" style="width:100%;">Contact Sales</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column"><h3><i class="fas fa-file-pdf"></i> PDF Master AI</h3><p>250+ AI-powered PDF tools by <strong>Badsha Bilal 👑</strong></p><p style="color:var(--gray);font-size:12px;">Adobe Acrobat alternative</p></div>
+        <div class="footer-column"><h3>Quick Links</h3><ul><li><a onclick="scrollToSection('featuresSection')">All Features</a></li><li><a onclick="scrollToSection('apiSection')">Developer API</a></li><li><a onclick="scrollToSection('pricingSection')">Pricing</a></li><li><a onclick="openModal('helpModal')">Help Center</a></li></ul></div>
+        <div class="footer-column"><h3>Legal</h3><ul><li><a onclick="openModal('termsModal')">Terms of Service</a></li><li><a onclick="openModal('privacyModal')">Privacy Policy</a></li><li><a onclick="openModal('licenseModal')">License</a></li></ul></div>
+        <div class="footer-column"><h3>Contact</h3><ul><li><a href="mailto:bilalafghan546@gmail.com"><i class="fas fa-envelope"></i> bilalafghan546@gmail.com</a></li><li><a href="https://wa.me/93789380279" target="_blank"><i class="fab fa-whatsapp"></i> +93 789 380 279</a></li><li><a onclick="openModal('contactModal')">More Contact Info</a></li></ul></div>
+      </div>
+      <div class="copyright">© 2025 PDF Master AI | Created by Badsha Bilal 👑 | <a onclick="openModal('termsModal')" style="color:var(--primary);cursor:pointer;">Terms</a> | <a onclick="openModal('privacyModal')" style="color:var(--primary);cursor:pointer;">Privacy</a> | <a onclick="openModal('licenseModal')" style="color:var(--primary);cursor:pointer;">License</a></div>
+    </div>
+  </footer>
+
+  <script>
+    class ParticleSystem {
+      constructor() {
+        this.canvas = document.getElementById('particlesCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        this.animate();
+      }
+      resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.particles = Array.from({ length: 50 }, () => ({
+          x: Math.random() * this.canvas.width,
+          y: Math.random() * this.canvas.height,
+          size: Math.random() * 3 + 1,
+          speedX: (Math.random() - 0.5) * 0.5,
+          speedY: (Math.random() - 0.5) * 0.5,
+          opacity: Math.random() * 0.5 + 0.1
+        }));
+      }
+      animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.particles.forEach(p => {
+          p.x += p.speedX;
+          p.y += p.speedY;
+          if (p.x < 0) p.x = this.canvas.width;
+          if (p.x > this.canvas.width) p.x = 0;
+          if (p.y < 0) p.y = this.canvas.height;
+          if (p.y > this.canvas.height) p.y = 0;
+          this.ctx.beginPath();
+          this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          this.ctx.fillStyle = `rgba(108,99,255,${p.opacity})`;
+          this.ctx.fill();
+        });
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+    new ParticleSystem();
+
+    function applyTheme() {
+      const theme = localStorage.getItem('pdfmaster_theme') || 'dark';
+      document.body.setAttribute('data-theme', theme);
+      document.getElementById('themeToggle').innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('pdfmaster_theme', newTheme);
+      applyTheme();
+    });
+    applyTheme();
+
+    function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+    function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+    // ========== FULL 250+ FEATURES (16 GROUPS) ==========
+    const featureGroups = [
+      { title: "📄 Basic PDF Features", groupIcon: "fa-file-pdf", items: [
+        { name: "Create PDF", icon: "fa-file-pdf", color: "#E74C3C" }, { name: "Edit PDF", icon: "fa-pen-to-square", color: "#3498DB" },
+        { name: "Merge PDF", icon: "fa-object-group", color: "#2ECC71" }, { name: "Split PDF", icon: "fa-scissors", color: "#F39C12" },
+        { name: "Compress PDF", icon: "fa-compress-arrows-alt", color: "#9B59B6" }, { name: "Rotate PDF", icon: "fa-rotate", color: "#1ABC9C" },
+        { name: "Crop PDF", icon: "fa-crop-alt", color: "#E67E22" }, { name: "Delete Pages", icon: "fa-trash-can", color: "#C0392B" },
+        { name: "Rearrange Pages", icon: "fa-arrow-right-arrow-left", color: "#2980B9" }, { name: "Extract Pages", icon: "fa-file-export", color: "#27AE60" },
+        { name: "Add Watermark", icon: "fa-stamp", color: "#8E44AD" }, { name: "Remove Watermark", icon: "fa-eraser", color: "#D35400" },
+        { name: "Page Numbers", icon: "fa-list-ol", color: "#16A085" }, { name: "Header/Footer", icon: "fa-heading", color: "#2C3E50" },
+        { name: "PDF Flattening", icon: "fa-layer-group", color: "#7F8C8D" }
+      ]},
+      { title: "🔄 Convert Features", groupIcon: "fa-exchange-alt", items: [
+        { name: "PDF to Word", icon: "fa-file-word", color: "#2B579A" }, { name: "PDF to Excel", icon: "fa-file-excel", color: "#217346" },
+        { name: "PDF to PowerPoint", icon: "fa-file-powerpoint", color: "#D24726" }, { name: "PDF to JPG", icon: "fa-file-image", color: "#E74C3C" },
+        { name: "PDF to PNG", icon: "fa-file-image", color: "#8E44AD" }, { name: "PDF to HTML", icon: "fa-code", color: "#E44D26" },
+        { name: "PDF to TXT", icon: "fa-file-alt", color: "#7F8C8D" }, { name: "Word to PDF", icon: "fa-file-pdf", color: "#3498DB" },
+        { name: "Excel to PDF", icon: "fa-file-pdf", color: "#27AE60" }, { name: "JPG to PDF", icon: "fa-file-pdf", color: "#F39C12" },
+        { name: "HTML to PDF", icon: "fa-file-pdf", color: "#E44D26" }, { name: "Markdown to PDF", icon: "fa-file-pdf", color: "#16A085" },
+        { name: "RTF to PDF", icon: "fa-file-pdf", color: "#2C3E50" }, { name: "CSV to PDF", icon: "fa-file-csv", color: "#2ECC71" },
+        { name: "EPUB to PDF", icon: "fa-book", color: "#F39C12" }
+      ]},
+      { title: "🤖 AI Content Intelligence", groupIcon: "fa-robot", items: [
+        { name: "AI Summarize", icon: "fa-file-lines", color: "#8E44AD" }, { name: "AI Explain Document", icon: "fa-circle-info", color: "#2980B9" },
+        { name: "AI Rewrite Text", icon: "fa-pen-fancy", color: "#E67E22" }, { name: "AI Grammar Fix", icon: "fa-spell-check", color: "#27AE60" },
+        { name: "AI Translate", icon: "fa-language", color: "#3498DB" }, { name: "AI Detect Language", icon: "fa-globe-americas", color: "#F39C12" },
+        { name: "AI Generate Notes", icon: "fa-note-sticky", color: "#F1C40F" }, { name: "AI Flashcards", icon: "fa-layer-group", color: "#E74C3C" },
+        { name: "AI Quiz Generator", icon: "fa-circle-question", color: "#9B59B6" }, { name: "AI Extract Key Points", icon: "fa-list-check", color: "#16A085" },
+        { name: "AI Generate Headings", icon: "fa-heading", color: "#D35400" }, { name: "AI Auto Formatting", icon: "fa-wand-magic-sparkles", color: "#8E44AD" },
+        { name: "AI Resume Analyzer", icon: "fa-file-user", color: "#2980B9" }, { name: "AI CV Creator", icon: "fa-id-card", color: "#27AE60" },
+        { name: "AI Invoice Generator", icon: "fa-file-invoice", color: "#E67E22" }, { name: "AI Contract Analyzer", icon: "fa-file-contract", color: "#C0392B" },
+        { name: "AI Plagiarism Checker", icon: "fa-copy", color: "#F39C12" }, { name: "AI Citation Generator", icon: "fa-quote-right", color: "#2C3E50" },
+        { name: "AI Research Assistant", icon: "fa-microscope", color: "#8E44AD" }, { name: "AI Medical Summary", icon: "fa-stethoscope", color: "#E74C3C" }
+      ]},
+      { title: "💬 Interactive AI Chat", groupIcon: "fa-comments", items: [
+        { name: "Chat with PDF", icon: "fa-comment-dots", color: "#2ECC71" }, { name: "Ask Questions", icon: "fa-circle-question", color: "#3498DB" },
+        { name: "Multi-turn Chat", icon: "fa-comments", color: "#F39C12" }, { name: "Context Memory", icon: "fa-brain", color: "#9B59B6" },
+        { name: "Document Q&A", icon: "fa-file-circle-question", color: "#2980B9" }, { name: "Deep Analysis", icon: "fa-magnifying-glass-chart", color: "#E67E22" },
+        { name: "Code Extraction", icon: "fa-code", color: "#E44D26" }, { name: "Data Extraction", icon: "fa-table", color: "#27AE60" },
+        { name: "Summary Chat", icon: "fa-file-lines", color: "#8E44AD" }, { name: "Translation Chat", icon: "fa-language", color: "#3498DB" },
+        { name: "Multi-PDF Chat", icon: "fa-copy", color: "#F1C40F" }, { name: "Semantic Search", icon: "fa-magnifying-glass", color: "#16A085" },
+        { name: "AI Voice Chat", icon: "fa-microphone", color: "#E74C3C" }, { name: "Reference Highlighting", icon: "fa-highlighter", color: "#F39C12" },
+        { name: "Export Chat to PDF", icon: "fa-file-export", color: "#2C3E50" }
+      ]},
+      { title: "👁️ Advanced OCR", groupIcon: "fa-eye", items: [
+        { name: "Image to Text", icon: "fa-image", color: "#3498DB" }, { name: "Handwritten Notes OCR", icon: "fa-pencil", color: "#E67E22" },
+        { name: "Scanned PDFs OCR", icon: "fa-scanner", color: "#2980B9" }, { name: "Table OCR", icon: "fa-table", color: "#27AE60" },
+        { name: "Multi-language OCR", icon: "fa-language", color: "#8E44AD" }, { name: "Persian/Arabic OCR", icon: "fa-font", color: "#C0392B" },
+        { name: "English OCR", icon: "fa-font", color: "#F39C12" }, { name: "Urdu OCR", icon: "fa-font", color: "#2ECC71" },
+        { name: "Pashto OCR", icon: "fa-font", color: "#F1C40F" }, { name: "Math Equations OCR", icon: "fa-square-root-variable", color: "#E74C3C" },
+        { name: "Batch OCR", icon: "fa-layer-group", color: "#3498DB" }, { name: "OCR to Word", icon: "fa-file-word", color: "#2B579A" },
+        { name: "OCR to Excel", icon: "fa-file-excel", color: "#217346" }, { name: "Zone OCR", icon: "fa-vector-square", color: "#9B59B6" },
+        { name: "Searchable PDF Creator", icon: "fa-magnifying-glass", color: "#16A085" }
+      ]},
+      { title: "🎨 Creative Design & Templates", groupIcon: "fa-paint-brush", items: [
+        { name: "PDF Templates", icon: "fa-file-lines", color: "#3498DB" }, { name: "Resume Templates", icon: "fa-file-user", color: "#2980B9" },
+        { name: "Invoice Templates", icon: "fa-file-invoice", color: "#E67E22" }, { name: "Poster Templates", icon: "fa-image", color: "#E74C3C" },
+        { name: "Flyer Templates", icon: "fa-pager", color: "#F39C12" }, { name: "Certificate Templates", icon: "fa-certificate", color: "#F1C40F" },
+        { name: "Business Proposal", icon: "fa-file-contract", color: "#2ECC71" }, { name: "Presentation", icon: "fa-file-powerpoint", color: "#D24726" },
+        { name: "Drag & Drop Editor", icon: "fa-hand-pointer", color: "#8E44AD" }, { name: "Custom Fonts", icon: "fa-font", color: "#16A085" },
+        { name: "Gradient Backgrounds", icon: "fa-fill-drip", color: "#9B59B6" }, { name: "Shapes/Icons", icon: "fa-shapes", color: "#FF9800" },
+        { name: "Animation Export", icon: "fa-film", color: "#00BCD4" }, { name: "Dark Mode PDFs", icon: "fa-moon", color: "#607D8B" },
+        { name: "Custom Colors", icon: "fa-palette", color: "#E91E63" }, { name: "AI Image Generation", icon: "fa-wand-magic-sparkles", color: "#8E44AD" },
+        { name: "Logo Placeholder", icon: "fa-icons", color: "#F39C12" }, { name: "Layout Suggestions", icon: "fa-pager", color: "#2ECC71" },
+        { name: "Branding Kits", icon: "fa-briefcase", color: "#2980B9" }, { name: "Vector Graphics Support", icon: "fa-bezier-curve", color: "#E67E22" }
+      ]},
+      { title: "🔒 Security & Privacy", groupIcon: "fa-shield-alt", items: [
+        { name: "AES Encryption", icon: "fa-shield-halved", color: "#2ECC71" }, { name: "Secure Sharing", icon: "fa-share-alt", color: "#3498DB" },
+        { name: "Expiring Links", icon: "fa-link-slash", color: "#F39C12" }, { name: "Two-Factor Auth", icon: "fa-mobile-screen-button", color: "#E74C3C" },
+        { name: "Login Alerts", icon: "fa-triangle-exclamation", color: "#E67E22" }, { name: "Device Management", icon: "fa-laptop", color: "#2980B9" },
+        { name: "Anti-Copy Protection", icon: "fa-ban", color: "#C0392B" }, { name: "Disable Screenshot", icon: "fa-camera", color: "#8E44AD" },
+        { name: "IP Restrictions", icon: "fa-globe", color: "#16A085" }, { name: "Audit Logs", icon: "fa-book", color: "#7F8C8D" },
+        { name: "Password Protection", icon: "fa-lock", color: "#F1C40F" }, { name: "Remove Password", icon: "fa-unlock-keyhole", color: "#E67E22" },
+        { name: "Smart Redaction (PII)", icon: "fa-marker", color: "#D35400" }, { name: "Malware Scan", icon: "fa-virus-slash", color: "#C0392B" },
+        { name: "Digital Rights Management", icon: "fa-copyright", color: "#2980B9" }
+      ]},
+      { title: "✍️ Digital Signature", groupIcon: "fa-signature", items: [
+        { name: "E-Signature", icon: "fa-pen-to-square", color: "#3498DB" }, { name: "Draw Signature", icon: "fa-pencil", color: "#E67E22" },
+        { name: "Upload Signature", icon: "fa-upload", color: "#2ECC71" }, { name: "Signature Request", icon: "fa-envelope", color: "#F39C12" },
+        { name: "Multi-Signature", icon: "fa-users", color: "#9B59B6" }, { name: "Legal Tracking", icon: "fa-gavel", color: "#C0392B" },
+        { name: "Timestamp Signing", icon: "fa-clock", color: "#2980B9" }, { name: "Mobile Sign", icon: "fa-mobile-alt", color: "#16A085" },
+        { name: "QR Sign", icon: "fa-qrcode", color: "#E74C3C" }, { name: "Digital Certificate", icon: "fa-certificate", color: "#F1C40F" },
+        { name: "Signature Pad", icon: "fa-tablet-alt", color: "#3498DB" }, { name: "Bulk Signing", icon: "fa-file-signature", color: "#27AE60" },
+        { name: "Custom Branding", icon: "fa-tag", color: "#8E44AD" }, { name: "Reminders", icon: "fa-bell", color: "#F39C12" },
+        { name: "Audit Trail PDF", icon: "fa-clipboard-list", color: "#2C3E50" }
+      ]},
+      { title: "☁️ Cloud & Infrastructure", groupIcon: "fa-cloud", items: [
+        { name: "Cloud Storage", icon: "fa-cloud-arrow-up", color: "#3498DB" }, { name: "Auto Backup", icon: "fa-cloud-upload-alt", color: "#2ECC71" },
+        { name: "Device Sync", icon: "fa-mobile-screen", color: "#E67E22" }, { name: "Google Drive Sync", icon: "fa-google-drive", color: "#4285F4" },
+        { name: "Dropbox Sync", icon: "fa-dropbox", color: "#0061FF" }, { name: "OneDrive Sync", icon: "fa-microsoft", color: "#0078D4" },
+        { name: "AWS S3 Storage", icon: "fa-aws", color: "#FF9900" }, { name: "CDN Delivery", icon: "fa-network-wired", color: "#E74C3C" },
+        { name: "Fast Download", icon: "fa-download", color: "#27AE60" }, { name: "Offline Mode", icon: "fa-wifi-slash", color: "#95A5A6" },
+        { name: "Auto Sync", icon: "fa-rotate", color: "#1ABC9C" }, { name: "File Recovery", icon: "fa-trash-arrow-up", color: "#E67E22" },
+        { name: "Multi-Region Servers", icon: "fa-server", color: "#2980B9" }, { name: "High Availability", icon: "fa-check-double", color: "#2ECC71" },
+        { name: "Versioning Cloud", icon: "fa-clock-rotate-left", color: "#8E44AD" }
+      ]},
+      { title: "⚡ Productivity & Workflow", groupIcon: "fa-bolt", items: [
+        { name: "Batch Processing", icon: "fa-layer-group", color: "#E74C3C" }, { name: "Bulk Conversion", icon: "fa-file-export", color: "#3498DB" },
+        { name: "Auto File Naming", icon: "fa-i-cursor", color: "#2ECC71" }, { name: "Smart Folders", icon: "fa-folder-open", color: "#F39C12" },
+        { name: "Favorites", icon: "fa-star", color: "#F1C40F" }, { name: "Search Inside PDFs", icon: "fa-magnifying-glass", color: "#2980B9" },
+        { name: "Tag System", icon: "fa-tags", color: "#8E44AD" }, { name: "Recent Files", icon: "fa-clock-rotate-left", color: "#27AE60" },
+        { name: "Auto Save", icon: "fa-floppy-disk", color: "#3498DB" }, { name: "Keyboard Shortcuts", icon: "fa-keyboard", color: "#7F8C8D" },
+        { name: "Quick Actions", icon: "fa-bolt", color: "#F39C12" }, { name: "Workflow Automation", icon: "fa-diagram-project", color: "#2ECC71" },
+        { name: "Email to PDF", icon: "fa-envelope", color: "#EA4335" }, { name: "Browser Extension", icon: "fa-puzzle-piece", color: "#4285F4" },
+        { name: "Voice Commands", icon: "fa-microphone", color: "#E74C3C" }
+      ]},
+      { title: "💻 Developer API & SDK", groupIcon: "fa-code", items: [
+        { name: "REST API", icon: "fa-plug", color: "#3498DB" }, { name: "AI API", icon: "fa-brain", color: "#8E44AD" },
+        { name: "PDF Generation API", icon: "fa-file-pdf", color: "#E74C3C" }, { name: "OCR API", icon: "fa-eye", color: "#2ECC71" },
+        { name: "Webhooks", icon: "fa-link", color: "#F39C12" }, { name: "SDK (Python, Node.js)", icon: "fa-code-branch", color: "#16A085" },
+        { name: "Rate Limiting", icon: "fa-tachometer-alt", color: "#E67E22" }, { name: "API Analytics", icon: "fa-chart-line", color: "#2980B9" },
+        { name: "API Keys Management", icon: "fa-key", color: "#F1C40F" }, { name: "OAuth 2.0", icon: "fa-lock", color: "#C0392B" },
+        { name: "JWT Auth", icon: "fa-fingerprint", color: "#9B59B6" }, { name: "GraphQL", icon: "fa-project-diagram", color: "#E10098" },
+        { name: "Swagger Docs", icon: "fa-file-code", color: "#85EA2D" }, { name: "Sandbox Environment", icon: "fa-box", color: "#F39C12" },
+        { name: "Usage Logs", icon: "fa-clipboard-list", color: "#7F8C8D" }, { name: "Custom Domains", icon: "fa-globe", color: "#3498DB" },
+        { name: "White-labeling", icon: "fa-paint-roller", color: "#2ECC71" }, { name: "Docker Images", icon: "fa-docker", color: "#0db7ed" },
+        { name: "Serverless Functions", icon: "fa-cloud", color: "#FF9900" }, { name: "Postman Collection", icon: "fa-paper-plane", color: "#FF6C37" }
+      ]},
+      { title: "📈 Finance & Trading Special", groupIcon: "fa-chart-line", items: [
+        { name: "Trading Journal PDF", icon: "fa-book-journal-whills", color: "#F39C12" }, { name: "Chart-to-PDF", icon: "fa-chart-bar", color: "#2ECC71" },
+        { name: "Forex Report Generator", icon: "fa-file-invoice-dollar", color: "#3498DB" }, { name: "Economic Calendar PDF", icon: "fa-calendar-check", color: "#E67E22" },
+        { name: "Crypto Portfolio Export", icon: "fa-bitcoin", color: "#F7931A" }, { name: "Profit/Loss Analysis", icon: "fa-scale-balanced", color: "#C0392B" },
+        { name: "Technical Indicators Summary", icon: "fa-chart-simple", color: "#2980B9" }, { name: "Candle Pattern PDF", icon: "fa-fire", color: "#E74C3C" },
+        { name: "Automated Market Brief", icon: "fa-newspaper", color: "#8E44AD" }, { name: "MT5 Statement Analyzer", icon: "fa-chart-candlestick", color: "#16A085" },
+        { name: "Trading Plan Template", icon: "fa-file-lines", color: "#27AE60" }, { name: "Risk Management PDF", icon: "fa-triangle-exclamation", color: "#F1C40F" },
+        { name: "Multi-Currency Support", icon: "fa-dollar-sign", color: "#2ECC71" }, { name: "Real-time Exchange PDF", icon: "fa-clock", color: "#9B59B6" },
+        { name: "Backtesting Reports", icon: "fa-flask", color: "#E67E22" }
+      ]},
+      { title: "🎓 Academic & Research", groupIcon: "fa-graduation-cap", items: [
+        { name: "Academic Paper Analyzer", icon: "fa-file-magnifying-glass", color: "#3498DB" }, { name: "Mind Map Generator", icon: "fa-diagram-project", color: "#2ECC71" },
+        { name: "Reference Linker", icon: "fa-link", color: "#F39C12" }, { name: "LaTeX Support", icon: "fa-code", color: "#008080" },
+        { name: "Math Solver", icon: "fa-calculator", color: "#E74C3C" }, { name: "Study Schedule PDF", icon: "fa-calendar-days", color: "#2980B9" },
+        { name: "Thesis Formatting", icon: "fa-align-left", color: "#8E44AD" }, { name: "Peer Review Tool", icon: "fa-users-between-lines", color: "#27AE60" },
+        { name: "Syllabus Generator", icon: "fa-list-check", color: "#E67E22" }, { name: "Flashcard Auto-sync", icon: "fa-layer-group", color: "#F1C40F" },
+        { name: "PDF to Audiobook", icon: "fa-headphones", color: "#9B59B6" }, { name: "Citation Styler", icon: "fa-quote-right", color: "#2C3E50" },
+        { name: "Scientific Notation OCR", icon: "fa-superscript", color: "#16A085" }, { name: "Bibliographic Search", icon: "fa-book", color: "#C0392B" },
+        { name: "Journal Template", icon: "fa-newspaper", color: "#3498DB" }
+      ]},
+      { title: "🏢 Enterprise & Legal", groupIcon: "fa-building", items: [
+        { name: "Legal Document Review", icon: "fa-scale-balanced", color: "#C0392B" }, { name: "NDA Generator", icon: "fa-file-shield", color: "#2980B9" },
+        { name: "Compliance Audit", icon: "fa-clipboard-check", color: "#27AE60" }, { name: "PDF Comparison Tool", icon: "fa-code-compare", color: "#F39C12" },
+        { name: "Bates Numbering", icon: "fa-hashtag", color: "#8E44AD" }, { name: "Contract Expiry Alerts", icon: "fa-bell", color: "#E74C3C" },
+        { name: "Team Workspaces", icon: "fa-people-group", color: "#3498DB" }, { name: "Permission Levels", icon: "fa-user-lock", color: "#E67E22" },
+        { name: "Public/Private Folders", icon: "fa-eye-slash", color: "#7F8C8D" }, { name: "Corporate Branding", icon: "fa-briefcase", color: "#2980B9" },
+        { name: "Case Management", icon: "fa-folder-tree", color: "#2ECC71" }, { name: "Regulatory Check", icon: "fa-gavel", color: "#F1C40F" },
+        { name: "Form Builder", icon: "fa-wpforms", color: "#9B59B6" }, { name: "Data Privacy Shield", icon: "fa-shield-halved", color: "#16A085" },
+        { name: "eDiscovery Tools", icon: "fa-magnifying-glass", color: "#E74C3C" }
+      ]},
+      { title: "🔥 Social & Viral", groupIcon: "fa-fire", items: [
+        { name: "Template Marketplace", icon: "fa-store", color: "#F39C12" }, { name: "Community Uploads", icon: "fa-cloud-arrow-up", color: "#3498DB" },
+        { name: "AI Wallpaper PDFs", icon: "fa-image", color: "#8E44AD" }, { name: "QR Code Generator", icon: "fa-qrcode", color: "#2ECC71" },
+        { name: "Meme PDF Creator", icon: "fa-face-laugh", color: "#E74C3C" }, { name: "TikTok Export", icon: "fa-video", color: "#000000" },
+        { name: "Carousel Export", icon: "fa-images", color: "#E91E63" }, { name: "Link-in-Bio PDF", icon: "fa-link", color: "#607D8B" },
+        { name: "Instagram Post PDF", icon: "fa-instagram", color: "#E1306C" }, { name: "WhatsApp PDF Bot", icon: "fa-whatsapp", color: "#25D366" },
+        { name: "Interactive Flipbooks", icon: "fa-book-open", color: "#FF9800" }, { name: "Digital Business Card", icon: "fa-address-card", color: "#00BCD4" },
+        { name: "Portfolio Showcase", icon: "fa-briefcase", color: "#9C27B0" }, { name: "Gift Card PDF", icon: "fa-gift", color: "#E91E63" },
+        { name: "Daily Inspiration PDF", icon: "fa-sun", color: "#FF5722" }
+      ]},
+      { title: "🧠 Advanced AI Capabilities", groupIcon: "fa-microchip", items: [
+        { name: "AI Sentiment Analysis", icon: "fa-face-smile", color: "#F39C12" }, { name: "AI Data Visualization", icon: "fa-chart-pie", color: "#3498DB" },
+        { name: "AI Mind Map Export", icon: "fa-diagram-project", color: "#2ECC71" }, { name: "AI Code Explainer", icon: "fa-code", color: "#E74C3C" },
+        { name: "AI Video Summary to PDF", icon: "fa-video", color: "#8E44AD" }, { name: "AI Slide Generator", icon: "fa-sliders", color: "#F39C12" },
+        { name: "AI Voice-to-PDF", icon: "fa-microphone", color: "#2980B9" }, { name: "AI Trend Predictor", icon: "fa-arrow-trend-up", color: "#E67E22" },
+        { name: "AI Table to Graph", icon: "fa-table-cells", color: "#27AE60" }, { name: "AI Style Transfer", icon: "fa-paint-brush", color: "#9B59B6" }
+      ]}
+    ];
+
+    function renderAllFeatures(filter = '') {
+      const container = document.getElementById('allFeaturesContainer');
+      let html = '';
+      let hasResults = false;
+      featureGroups.forEach(group => {
+        const filteredItems = filter ? group.items.filter(item => item.name.toLowerCase().includes(filter.toLowerCase())) : group.items;
+        if (filteredItems.length === 0 && filter) return;
+        hasResults = true;
+        html += `<div style="margin-bottom: 40px;">`;
+        html += `<h3 style="font-size: 22px; margin-bottom: 20px; color: var(--light);"><i class="fas ${group.groupIcon}" style="color: var(--primary); margin-right: 10px;"></i>${group.title}</h3>`;
+        html += `<div class="feature-grid">`;
+        filteredItems.forEach(feat => {
+          html += `<div class="feature-card"><div class="feat-icon"><i class="fas ${feat.icon}" style="color: ${feat.color};"></i></div><h4>${feat.name}</h4></div>`;
+        });
+        html += `</div></div>`;
+      });
+      if (!hasResults && filter) {
+        html = `<div style="text-align:center; padding:60px; color:var(--gray);"><i class="fas fa-search" style="font-size:48px; margin-bottom:20px;"></i><h3>No features found for "${filter}"</h3><p>Try a different search term</p></div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function filterFeatures(term) {
+      const clearBtn = document.getElementById('clearSearch');
+      clearBtn.style.display = term.trim() ? 'inline-block' : 'none';
+      renderAllFeatures(term.trim());
+    }
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearSearch').style.display = 'none';
+      renderAllFeatures();
+    }
+
+    renderAllFeatures();
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal-overlay')) {
+        e.target.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+
+    console.log('🚀 PDF Master AI - 250+ Features Loaded');
+    console.log('👑 Created by Badsha Bilal');
+    console.log('✅ All 16 categories with unique Font Awesome icons');
+    console.log('✅ Real search engine active');
+    console.log('✅ 250 features ready');
+  </script>
+</body>
+</html>
