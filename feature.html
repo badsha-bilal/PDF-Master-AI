@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.50, user-scalable=no">
+    
+    <!-- Dynamic SEO Meta Tags -->
+    <title id="pageTitle">AI PDF Maker Pro | Free PDF Tools</title>
+    <meta id="metaDescription" name="description" content="Free PDF tools by Badsha Bilal 👑">
+    <meta id="metaKeywords" name="keywords" content="PDF tools, free PDF, Badsha Bilal">
+    <meta name="author" content="Badsha Bilal 👑">
+    <meta name="robots" content="index, follow">
+    <link id="canonicalLink" rel="canonical" href="https://badsha-bilal.github.io/PDF-Master-AI/">
+    <meta name="theme-color" content="#6C63FF">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B94G268Q8R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B94G268Q8R');
+    </script>
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" id="ogUrl" content="https://badsha-bilal.github.io/PDF-Master-AI/">
+    <meta property="og:title" id="ogTitle" content="AI PDF Maker Pro">
+    <meta property="og:description" id="ogDescription" content="Free PDF tools by Badsha Bilal">
+    <meta property="og:site_name" content="AI PDF Maker Pro">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitterTitle" content="AI PDF Maker Pro">
+    <meta name="twitter:description" id="twitterDescription" content="Free PDF tools by Badsha Bilal">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" id="schemaData">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AI PDF Maker Pro",
+        "url": "https://badsha-bilal.github.io/PDF-Master-AI/",
+        "description": "Free PDF tools by Badsha Bilal",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "author": {
+            "@type": "Person",
+            "name": "Badsha Bilal 👑",
+            "email": "bilalafghan546@gmail.com"
+        },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary:#6C63FF; --primary-dark:#554fd8; --secondary:#FF6584;
+            --dark:#1A1A2E; --dark-light:#2D3047; --dark-lighter:#3D4058;
+            --light:#F8F9FA; --gray:#6C757D; --success:#2ECC71;
+            --warning:#F39C12; --danger:#E74C3C; --info:#3498DB;
+            --radius:16px; --radius-sm:10px;
+            --transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--light);min-height:100vh;overflow-x:hidden;}
+        ::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-track{background:var(--dark-light);}::-webkit-scrollbar-thumb{background:var(--primary);border-radius:10px;}
+        
+        /* Navigation */
+        .navbar{background:rgba(26,26,46,0.92);backdrop-filter:blur(30px);position:fixed;width:100%;top:0;z-index:1000;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+        .nav-container{max-width:1400px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;}
+        .logo{font-size:22px;font-weight:800;color:var(--light);text-decoration:none;display:flex;align-items:center;gap:8px;}
+        .logo img{height:28px;width:28px;border-radius:8px;}
+        .logo span{color:var(--primary);}
+        .nav-links{display:flex;gap:15px;flex-wrap:wrap;}
+        .nav-links a{color:var(--light);text-decoration:none;font-size:13px;font-weight:500;padding:8px 16px;border-radius:50px;transition:var(--transition);}
+        .nav-links a:hover{background:rgba(108,99,255,0.2);}
+        
+        /* Breadcrumb */
+        .breadcrumb-wrap{padding-top:90px;max-width:1200px;margin:0 auto;padding-left:20px;padding-right:20px;}
+        .breadcrumb{font-size:13px;color:var(--gray);padding:10px 0;display:flex;flex-wrap:wrap;gap:5px;align-items:center;}
+        .breadcrumb a{color:var(--primary);text-decoration:none;}
+        .breadcrumb a:hover{text-decoration:underline;}
+        .breadcrumb i{font-size:10px;color:var(--gray);}
+        
+        /* Main Content */
+        .main-container{max-width:1200px;margin:0 auto;padding:20px;}
+        
+        /* Tool Header */
+        .tool-header{background:var(--dark-light);border-radius:var(--radius);padding:50px 30px;text-align:center;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);animation:fadeIn 0.5s ease;}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+        .tool-header .tool-icon{font-size:72px;margin-bottom:20px;}
+        .tool-header h1{font-size:34px;font-weight:800;margin-bottom:15px;}
+        .tool-header .badge{display:inline-block;padding:6px 16px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:15px;background:rgba(46,204,113,0.2);color:#2ECC71;}
+        .tool-header p{font-size:15px;color:var(--gray);max-width:700px;margin:0 auto;line-height:1.6;}
+        
+        /* Workspace */
+        .workspace{background:var(--dark-light);border-radius:var(--radius);padding:40px 30px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);}
+        .workspace h3{margin-bottom:20px;font-size:20px;}
+        .upload-zone{border:3px dashed var(--primary);border-radius:var(--radius);padding:50px 20px;text-align:center;cursor:pointer;transition:var(--transition);background:rgba(108,99,255,0.05);margin-bottom:20px;}
+        .upload-zone:hover{background:rgba(108,99,255,0.12);border-color:var(--secondary);}
+        .upload-zone i{font-size:50px;color:var(--primary);margin-bottom:15px;}
+        textarea{width:100%;min-height:250px;padding:20px;background:var(--dark);color:var(--light);border:2px solid rgba(255,255,255,0.1);border-radius:var(--radius-sm);font-family:'Poppins',sans-serif;font-size:14px;resize:vertical;margin-bottom:15px;}
+        textarea:focus{border-color:var(--primary);outline:none;}
+        .options-row{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px;}
+        .options-row > div{flex:1;min-width:150px;}
+        .options-row label{display:block;margin-bottom:5px;font-size:12px;color:var(--gray);}
+        select,input[type="text"],input[type="number"]{padding:12px 16px;background:var(--dark);color:var(--light);border:2px solid rgba(255,255,255,0.1);border-radius:var(--radius-sm);font-family:'Poppins',sans-serif;font-size:14px;width:100%;}
+        select:focus,input:focus{border-color:var(--primary);outline:none;}
+        .result-box{background:var(--success);color:white;padding:15px 20px;border-radius:var(--radius-sm);margin-top:15px;display:none;text-align:center;font-weight:500;}
+        .result-box a{color:#FFD700;font-weight:700;cursor:pointer;}
+        
+        .btn{padding:12px 28px;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px;transition:var(--transition);}
+        .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;width:100%;justify-content:center;font-size:16px;}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(108,99,255,0.4);}
+        .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none!important;}
+        .spinner{display:inline-block;width:20px;height:20px;border:3px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.8s linear infinite;}
+        @keyframes spin{to{transform:rotate(360deg);}}
+        
+        /* Guide Section */
+        .guide-section{background:var(--dark-light);border-radius:var(--radius);padding:40px 30px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);}
+        .guide-section h2{margin-bottom:25px;font-size:24px;}
+        .steps{display:flex;flex-direction:column;gap:20px;}
+        .step{display:flex;gap:20px;padding:20px;background:var(--dark);border-radius:var(--radius-sm);border-left:4px solid var(--primary);}
+        .step-number{font-size:32px;font-weight:800;color:var(--primary);min-width:50px;text-align:center;}
+        .step-content h4{font-size:16px;margin-bottom:5px;}
+        .step-content p{font-size:13px;color:var(--gray);}
+        
+        /* FAQ */
+        .faq-section{background:var(--dark-light);border-radius:var(--radius);padding:40px 30px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);}
+        .faq-section h2{margin-bottom:25px;font-size:24px;}
+        .faq-item{margin-bottom:15px;padding:20px;background:var(--dark);border-radius:var(--radius-sm);cursor:pointer;transition:var(--transition);}
+        .faq-item:hover{border-left:4px solid var(--primary);}
+        .faq-item h4{font-size:15px;margin-bottom:8px;}
+        .faq-item h4 i{color:var(--primary);margin-right:10px;}
+        .faq-item p{font-size:13px;color:var(--gray);display:none;}
+        .faq-item.active p{display:block;}
+        
+        /* Related Tools */
+        .related-section{background:var(--dark-light);border-radius:var(--radius);padding:40px 30px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);}
+        .related-section h2{margin-bottom:20px;font-size:24px;}
+        .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px;}
+        .related-card{background:var(--dark);border-radius:var(--radius-sm);padding:20px;text-decoration:none;color:var(--light);border:1px solid rgba(255,255,255,0.1);transition:var(--transition);display:flex;align-items:center;gap:12px;}
+        .related-card:hover{border-color:var(--primary);transform:translateY(-5px);}
+        .related-card i{font-size:28px;color:var(--primary);}
+        
+        /* Footer */
+        footer{text-align:center;padding:30px 20px;color:var(--gray);font-size:13px;border-top:1px solid rgba(255,255,255,0.1);margin-top:30px;}
+        
+        .toast{position:fixed;top:20px;right:20px;z-index:9999;background:var(--dark-lighter);color:var(--light);padding:15px 25px;border-radius:var(--radius-sm);border-left:4px solid var(--primary);animation:slideIn 0.4s ease;font-size:14px;}
+        @keyframes slideIn{from{transform:translateX(100%);opacity:0;}to{transform:translateX(0);opacity:1;}}
+        
+        @media(max-width:768px){
+            .tool-header h1{font-size:24px;}
+            .tool-header .tool-icon{font-size:48px;}
+            .workspace,.guide-section,.faq-section{padding:25px 18px;}
+            .step{flex-direction:column;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="./" class="logo">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%236C63FF' width='100' height='100' rx='20'/%3E%3Ctext x='50' y='65' text-anchor='middle' fill='white' font-size='50' font-weight='bold' font-family='Arial'%3EPDF%3C/text%3E%3C/svg%3E" alt="Logo">
+            AI PDF<span>Maker</span>
+        </a>
+        <div class="nav-links">
+            <a href="./"><i class="fas fa-home"></i> Home</a>
+            <a href="./feature.html?tool=merge-pdf"><i class="fas fa-object-group"></i> Merge</a>
+            <a href="./feature.html?tool=compress-pdf"><i class="fas fa-compress"></i> Compress</a>
+            <a href="./feature.html?tool=text-to-pdf"><i class="fas fa-file-lines"></i> Text→PDF</a>
+            <a href="./feature.html?tool=ai-summarize"><i class="fas fa-robot"></i> AI</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-wrap">
+    <div class="breadcrumb">
+        <a href="./">🏠 Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span id="breadCat">Category</span>
+        <i class="fas fa-chevron-right"></i>
+        <span id="breadTool" style="color:var(--primary);font-weight:600;">Tool</span>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-container" id="app"></div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 <strong>AI PDF Maker Pro</strong> | Created by <strong style="color:var(--primary);">Badsha Bilal 👑</strong></p>
+</footer>
+
+<div id="toastContainer"></div>
+
+<script>
+// ==================== DATA ====================
+const FEATURES_DB = {
+    'merge-pdf': {
+        id:1,name:'Merge PDF',icon:'fa-object-group',iconColor:'#2ECC71',
+        cat:'PDF Creation',catColor:'#6C63FF',
+        desc:'Combine multiple PDF files into one document. Free, fast, and no signup required.',
+        keywords:'merge pdf, combine pdf, pdf joiner, merge pdf online, free pdf merger, Badsha Bilal',
+        type:'upload-multiple',
+        guide:[
+            {title:'Upload PDF Files',desc:'Click the upload area or drag and drop multiple PDF files.'},
+            {title:'Arrange Order',desc:'Drag files in the desired order. First file appears first in output.'},
+            {title:'Click Merge',desc:'Press the Merge PDFs button and wait for processing.'},
+            {title:'Download',desc:'Download your merged PDF file.'}
+        ],
+        faq:[
+            {q:'How many PDFs can I merge?',a:'You can merge up to 20 PDF files at once for free.'},
+            {q:'Is there a file size limit?',a:'Each file can be up to 50MB. Total size limit is 200MB.'},
+            {q:'Are my files secure?',a:'Yes! Processing happens in your browser. Files are NOT uploaded.'},
+            {q:'Can I merge password-protected PDFs?',a:'Remove password first using our Password Removal tool.'}
+        ],
+        related:['compress-pdf','split-pdf','text-to-pdf']
+    },
+    'compress-pdf': {
+        id:345,name:'Compress PDF',icon:'fa-compress-arrows-alt',iconColor:'#F39C12',
+        cat:'Compression',catColor:'#F39C12',
+        desc:'Reduce PDF file size while maintaining quality. Choose from multiple compression levels.',
+        keywords:'compress pdf, reduce pdf size, pdf compressor, shrink pdf, optimize pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload PDF',desc:'Upload the PDF file you want to compress.'},
+            {title:'Select Quality',desc:'Choose High, Medium, or Maximum compression.'},
+            {title:'Click Compress',desc:'Press Compress PDF and wait 5-30 seconds.'},
+            {title:'Download',desc:'Download your compressed PDF.'}
+        ],
+        faq:[
+            {q:'How much can PDF be compressed?',a:'20-70% depending on content type.'},
+            {q:'Will quality be lost?',a:'Minimal in High mode. Maximum mode reduces quality more.'},
+            {q:'Is my data safe?',a:'Yes! Everything happens in your browser.'}
+        ],
+        related:['merge-pdf','pdf-to-text','rotate-pdf']
+    },
+    'text-to-pdf': {
+        id:37,name:'Text to PDF',icon:'fa-file-lines',iconColor:'#FF6B6B',
+        cat:'PDF Creation',catColor:'#6C63FF',
+        desc:'Convert plain text into a professional PDF document with customizable font and color.',
+        keywords:'text to pdf, convert text to pdf, txt to pdf, create pdf from text, Badsha Bilal',
+        type:'text-input',
+        guide:[
+            {title:'Enter Text',desc:'Type or paste your text into the text area.'},
+            {title:'Customize',desc:'Choose font size and text color.'},
+            {title:'Generate',desc:'Click Generate PDF button.'},
+            {title:'Download',desc:'Download your new PDF file.'}
+        ],
+        faq:[
+            {q:'How much text can I convert?',a:'Up to 50,000 characters per document.'},
+            {q:'Is this tool free?',a:'Yes, completely free, no signup needed.'}
+        ],
+        related:['pdf-to-text','word-to-pdf','merge-pdf']
+    },
+    'ai-summarize': {
+        id:380,name:'AI Summarize PDF',icon:'fa-file-lines',iconColor:'#1ABC9C',
+        cat:'AI Tools',catColor:'#1ABC9C',
+        desc:'Use AI to automatically summarize PDF documents. Get key points and executive summaries.',
+        keywords:'ai summarize pdf, pdf summary, ai pdf summarizer, summarize document, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload PDF',desc:'Upload the PDF document to summarize.'},
+            {title:'Choose Type',desc:'Select Key Points, Executive Summary, or Detailed.'},
+            {title:'AI Processing',desc:'AI reads your document and extracts key information.'},
+            {title:'View & Save',desc:'Review your summary and download it.'}
+        ],
+        faq:[
+            {q:'How accurate is AI summary?',a:'95%+ accuracy on most documents.'},
+            {q:'Is my document stored?',a:'No, processed temporarily and deleted immediately.'}
+        ],
+        related:['ocr-scanned','ai-translate','compress-pdf']
+    },
+    'word-to-pdf': {
+        id:30,name:'Word to PDF',icon:'fa-file-word',iconColor:'#2B579A',
+        cat:'PDF Creation',catColor:'#6C63FF',
+        desc:'Convert Microsoft Word documents to PDF format preserving all formatting.',
+        keywords:'word to pdf, docx to pdf, convert word to pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload Word File',desc:'Upload your .docx or .doc file.'},
+            {title:'Click Convert',desc:'Press Convert to PDF.'},
+            {title:'Download',desc:'Your PDF is ready with all formatting preserved.'}
+        ],
+        faq:[{q:'Which formats?',a:'.docx and .doc are fully supported.'}],
+        related:['pdf-to-word','text-to-pdf']
+    },
+    'pdf-to-word': {
+        id:43,name:'PDF to Word',icon:'fa-file-word',iconColor:'#2B579A',
+        cat:'PDF Creation',catColor:'#6C63FF',
+        desc:'Convert PDF files to editable Microsoft Word documents.',
+        keywords:'pdf to word, pdf to docx, convert pdf to word, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload PDF',desc:'Upload the PDF file.'},
+            {title:'Convert',desc:'Click Convert to Word.'},
+            {title:'Download',desc:'Download editable DOCX file.'}
+        ],
+        faq:[],
+        related:['word-to-pdf','pdf-to-text']
+    },
+    'pdf-to-text': {
+        id:50,name:'PDF to Text',icon:'fa-file-alt',iconColor:'#7F8C8D',
+        cat:'PDF Creation',catColor:'#6C63FF',
+        desc:'Extract plain text from any PDF document.',
+        keywords:'pdf to text, extract text from pdf, pdf to txt, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload PDF',desc:'Upload your PDF file.'},
+            {title:'Extract',desc:'Click Extract Text.'},
+            {title:'View',desc:'View and copy extracted text.'}
+        ],
+        faq:[],
+        related:['text-to-pdf','ocr-scanned']
+    },
+    'ocr-scanned': {
+        id:315,name:'OCR Scanned PDF',icon:'fa-eye',iconColor:'#9B59B6',
+        cat:'OCR',catColor:'#9B59B6',
+        desc:'Extract text from scanned PDFs and images. Make documents searchable.',
+        keywords:'ocr pdf, extract text from pdf, ocr scanned pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload scanned PDF or image.'},
+            {title:'Select Language',desc:'Choose document language.'},
+            {title:'Run OCR',desc:'Click Extract Text.'},
+            {title:'Get Results',desc:'View and download extracted text.'}
+        ],
+        faq:[],
+        related:['ai-summarize','pdf-to-text']
+    },
+    'add-watermark': {
+        id:165,name:'Add Watermark',icon:'fa-stamp',iconColor:'#8E44AD',
+        cat:'Customization',catColor:'#F39C12',
+        desc:'Add text watermarks to PDF documents for protection and branding.',
+        keywords:'add watermark pdf, pdf watermark, stamp pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload PDF',desc:'Upload your PDF file.'},
+            {title:'Enter Text',desc:'Type watermark text.'},
+            {title:'Apply',desc:'Click Add Watermark.'},
+            {title:'Download',desc:'Download watermarked PDF.'}
+        ],
+        faq:[],
+        related:['remove-watermark','encrypt-pdf']
+    },
+    'rotate-pdf': {
+        id:128,name:'Rotate PDF',icon:'fa-rotate-right',iconColor:'#1ABC9C',
+        cat:'PDF Editing',catColor:'#FF6584',
+        desc:'Rotate pages in PDF documents. Fix sideways or upside-down pages.',
+        keywords:'rotate pdf, rotate pdf pages, flip pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload PDF file.'},
+            {title:'Select Angle',desc:'Choose 90°, 180°, or 270°.'},
+            {title:'Download',desc:'Download rotated PDF.'}
+        ],
+        faq:[],
+        related:['merge-pdf','compress-pdf']
+    },
+    'split-pdf': {
+        id:116,name:'Split PDF',icon:'fa-scissors',iconColor:'#F39C12',
+        cat:'PDF Editing',catColor:'#FF6584',
+        desc:'Split PDF into multiple files. Extract specific pages easily.',
+        keywords:'split pdf, divide pdf, extract pdf pages, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload your PDF.'},
+            {title:'Choose Split',desc:'Select split method.'},
+            {title:'Download',desc:'Download split PDFs.'}
+        ],
+        faq:[],
+        related:['merge-pdf','extract-pages']
+    },
+    'ai-translate': {
+        id:398,name:'AI Translate PDF',icon:'fa-language',iconColor:'#3498DB',
+        cat:'AI Tools',catColor:'#1ABC9C',
+        desc:'Translate PDF content using AI. Supports 100+ languages.',
+        keywords:'ai translate pdf, translate document, pdf translation, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload PDF to translate.'},
+            {title:'Select Language',desc:'Choose target language.'},
+            {title:'Translate',desc:'AI translates your document.'},
+            {title:'Download',desc:'Download translated PDF.'}
+        ],
+        faq:[],
+        related:['ai-summarize','ocr-scanned']
+    },
+    'encrypt-pdf': {
+        id:195,name:'Encrypt PDF',icon:'fa-lock',iconColor:'#F1C40F',
+        cat:'Security',catColor:'#E74C3C',
+        desc:'Password protect your PDF documents with strong encryption.',
+        keywords:'encrypt pdf, password protect pdf, secure pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload PDF file.'},
+            {title:'Set Password',desc:'Enter a strong password.'},
+            {title:'Encrypt',desc:'Click Encrypt PDF.'},
+            {title:'Download',desc:'Download protected PDF.'}
+        ],
+        faq:[],
+        related:['remove-password','add-watermark']
+    },
+    'extract-pages': {
+        id:121,name:'Extract Pages',icon:'fa-file-export',iconColor:'#27AE60',
+        cat:'PDF Editing',catColor:'#FF6584',
+        desc:'Extract specific pages from a PDF document.',
+        keywords:'extract pdf pages, save pdf pages, extract pages from pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload your PDF.'},
+            {title:'Select Pages',desc:'Choose pages to extract.'},
+            {title:'Download',desc:'Download extracted pages.'}
+        ],
+        faq:[],
+        related:['split-pdf','merge-pdf']
+    },
+    'image-to-pdf': {
+        id:61,name:'Image to PDF',icon:'fa-images',iconColor:'#E74C3C',
+        cat:'PDF Creation',catColor:'#6C63FF',
+        desc:'Convert images (JPG, PNG, WEBP) to PDF format.',
+        keywords:'image to pdf, jpg to pdf, png to pdf, convert image to pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload Image',desc:'Upload JPG, PNG, or WEBP.'},
+            {title:'Convert',desc:'Click Convert to PDF.'},
+            {title:'Download',desc:'Download your PDF.'}
+        ],
+        faq:[],
+        related:['text-to-pdf','merge-pdf']
+    },
+    'remove-watermark': {
+        id:174,name:'Remove Watermark',icon:'fa-eraser',iconColor:'#D35400',
+        cat:'Customization',catColor:'#F39C12',
+        desc:'Remove watermarks from PDF documents.',
+        keywords:'remove watermark pdf, delete watermark, clean pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload watermarked PDF.'},
+            {title:'Remove',desc:'Click Remove Watermark.'},
+            {title:'Download',desc:'Download clean PDF.'}
+        ],
+        faq:[],
+        related:['add-watermark']
+    },
+    'remove-password': {
+        id:199,name:'Remove Password',icon:'fa-unlock-keyhole',iconColor:'#E67E22',
+        cat:'Security',catColor:'#E74C3C',
+        desc:'Remove password protection from PDF files.',
+        keywords:'remove pdf password, unlock pdf, decrypt pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload password-protected PDF.'},
+            {title:'Enter Password',desc:'Enter the current password.'},
+            {title:'Download',desc:'Download unlocked PDF.'}
+        ],
+        faq:[],
+        related:['encrypt-pdf']
+    },
+    'digital-signature': {
+        id:211,name:'Digital Signature',icon:'fa-signature',iconColor:'#3498DB',
+        cat:'Security',catColor:'#E74C3C',
+        desc:'Sign PDF documents digitally with legal validity.',
+        keywords:'digital signature pdf, sign pdf, e-sign pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload PDF to sign.'},
+            {title:'Create Signature',desc:'Draw or type your signature.'},
+            {title:'Place',desc:'Place signature on document.'},
+            {title:'Download',desc:'Download signed PDF.'}
+        ],
+        faq:[],
+        related:['encrypt-pdf','add-watermark']
+    },
+    'handwriting-ocr': {
+        id:321,name:'Handwriting OCR',icon:'fa-pen-fancy',iconColor:'#E67E22',
+        cat:'OCR',catColor:'#9B59B6',
+        desc:'Convert handwritten notes to digital text using AI-powered OCR.',
+        keywords:'handwriting ocr, handwritten to text, recognize handwriting, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload handwritten document.'},
+            {title:'OCR',desc:'Click Extract Text.'},
+            {title:'View',desc:'View extracted text.'}
+        ],
+        faq:[],
+        related:['ocr-scanned','ai-summarize']
+    },
+    'batch-compress': {
+        id:358,name:'Batch Compress',icon:'fa-cubes',iconColor:'#FF9800',
+        cat:'Compression',catColor:'#F39C12',
+        desc:'Compress multiple PDF files at once. Save time with batch processing.',
+        keywords:'batch compress pdf, compress multiple pdfs, bulk pdf compressor, Badsha Bilal',
+        type:'upload-multiple',
+        guide:[
+            {title:'Upload Files',desc:'Upload multiple PDFs.'},
+            {title:'Select Quality',desc:'Choose compression level.'},
+            {title:'Process',desc:'Click Compress All.'},
+            {title:'Download',desc:'Download all compressed PDFs.'}
+        ],
+        faq:[],
+        related:['compress-pdf','batch-ocr']
+    },
+    'bates-numbering': {
+        id:143,name:'Bates Numbering',icon:'fa-hashtag',iconColor:'#8E44AD',
+        cat:'PDF Editing',catColor:'#FF6584',
+        desc:'Add Bates numbering to legal documents for identification.',
+        keywords:'bates numbering, bates stamp, legal numbering pdf, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload legal PDF.'},
+            {title:'Set Prefix',desc:'Enter Bates prefix.'},
+            {title:'Apply',desc:'Click Apply Bates.'},
+            {title:'Download',desc:'Download numbered PDF.'}
+        ],
+        faq:[],
+        related:['add-page-numbers','merge-pdf']
+    },
+    'pdf-to-excel': {
+        id:44,name:'PDF to Excel',icon:'fa-file-excel',iconColor:'#217346',
+        cat:'PDF Creation',catColor:'#6C63FF',
+        desc:'Extract tables from PDF to Excel spreadsheets.',
+        keywords:'pdf to excel, extract tables from pdf, pdf to xlsx, Badsha Bilal',
+        type:'upload-single',
+        guide:[
+            {title:'Upload',desc:'Upload PDF with tables.'},
+            {title:'Convert',desc:'Click Convert to Excel.'},
+            {title:'Download',desc:'Download XLSX file.'}
+        ],
+        faq:[],
+        related:['pdf-to-csv','pdf-to-word']
+    },
+    'html-to-pdf': {
+        id:38,name:'HTML to PDF',icon:'fa-code',iconColor:'#E44D26',
+        cat:'PDF Creation',catColor:'#6C63FF',
+        desc:'Convert HTML code or web pages to PDF format.',
+        keywords:'html to pdf, web to pdf, convert html to pdf, Badsha Bilal',
+        type:'text-input',
+        guide:[
+            {title:'Paste HTML',desc:'Paste your HTML code.'},
+            {title:'Convert',desc:'Click Convert to PDF.'},
+            {title:'Download',desc:'Download your PDF.'}
+        ],
+        faq:[],
+        related:['url-to-pdf','markdown-to-pdf']
+    }
+};
+
+// Default generator for any tool not in DB
+function generateToolData(toolId) {
+    return {
+        id:toolId,
+        name:toolId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+        icon:'fa-file-pdf',
+        iconColor:'#6C63FF',
+        cat:'PDF Tools',
+        catColor:'#6C63FF',
+        desc:'Free PDF tool by Badsha Bilal 👑. No signup required.',
+        keywords:`${toolId}, pdf tools, free pdf, Badsha Bilal`,
+        type:'upload-single',
+        guide:[
+            {title:'Upload File',desc:'Upload your PDF document.'},
+            {title:'Process',desc:'Wait for the tool to process.'},
+            {title:'Download',desc:'Download your processed PDF.'}
+        ],
+        faq:[],
+        related:[]
+    };
+}
+
+// ==================== MAIN ====================
+function getToolId() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('tool') || 'merge-pdf';
+}
+
+function getToolData(toolId) {
+    return FEATURES_DB[toolId] || generateToolData(toolId);
+}
+
+function renderPage() {
+    const toolId = getToolId();
+    const tool = getToolData(toolId);
+    
+    // SEO
+    document.title = `${tool.name} - Free Online | AI PDF Maker Pro`;
+    document.getElementById('pageTitle').textContent = `${tool.name} - Free Online | AI PDF Maker Pro`;
+    document.getElementById('metaDescription').setAttribute('content', tool.desc);
+    document.getElementById('metaKeywords').setAttribute('content', tool.keywords);
+    document.getElementById('canonicalLink').href = `https://badsha-bilal.github.io/PDF-Master-AI/feature.html?tool=${toolId}`;
+    document.getElementById('ogUrl').setAttribute('content', `https://badsha-bilal.github.io/PDF-Master-AI/feature.html?tool=${toolId}`);
+    document.getElementById('ogTitle').setAttribute('content', `${tool.name} - AI PDF Maker Pro`);
+    document.getElementById('ogDescription').setAttribute('content', tool.desc);
+    document.getElementById('twitterTitle').setAttribute('content', `${tool.name} - AI PDF Maker Pro`);
+    document.getElementById('twitterDescription').setAttribute('content', tool.desc);
+    
+    // Schema
+    document.getElementById('schemaData').textContent = JSON.stringify({
+        "@context":"https://schema.org",
+        "@type":"SoftwareApplication",
+        "name":`${tool.name} - AI PDF Maker Pro`,
+        "url":`https://badsha-bilal.github.io/PDF-Master-AI/feature.html?tool=${toolId}`,
+        "description":tool.desc,
+        "applicationCategory":"UtilityApplication",
+        "operatingSystem":"All",
+        "author":{"@type":"Person","name":"Badsha Bilal 👑"},
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+    });
+    
+    // Breadcrumb
+    document.getElementById('breadCat').textContent = tool.cat;
+    document.getElementById('breadTool').textContent = tool.name;
+    
+    // Build HTML
+    let html = `
+    <div class="tool-header">
+        <div class="tool-icon"><i class="fas ${tool.icon}" style="color:${tool.iconColor};"></i></div>
+        <span class="badge">🆓 FREE</span>
+        <h1>${tool.name}</h1>
+        <p>${tool.desc}</p>
+        <small style="color:var(--gray);">Category: ${tool.cat} | Tool #${tool.id}</small>
+    </div>`;
+    
+    // Workspace
+    html += '<div class="workspace"><h3><i class="fas fa-wrench"></i> Workspace</h3>';
+    if (tool.type === 'upload-multiple') {
+        html += `
+        <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p><strong>Drag & Drop Files Here</strong></p>
+            <p style="font-size:12px;color:var(--gray);">or click to browse</p>
+        </div>
+        <input type="file" id="fileInput" multiple accept=".pdf" style="display:none;">
+        <button class="btn btn-primary" onclick="process()"><i class="fas ${tool.icon}"></i> ${tool.name}</button>`;
+    } else if (tool.type === 'text-input') {
+        html += `
+        <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+        ${toolId === 'text-to-pdf' ? `
+        <div class="options-row">
+            <div><label>Font Size</label><select id="fontSize"><option value="12">12px</option><option value="14" selected>14px</option><option value="16">16px</option><option value="18">18px</option></select></div>
+            <div><label>Color</label><input type="color" id="fontColor" value="#000000"></div>
+        </div>` : ''}
+        <button class="btn btn-primary" onclick="process()"><i class="fas ${tool.icon}"></i> Generate</button>`;
+    } else {
+        html += `
+        <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p><strong>Drag & Drop File Here</strong></p>
+            <p style="font-size:12px;color:var(--gray);">or click to browse</p>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,.docx,.doc,.jpg,.png,.webp" style="display:none;">
+        <button class="btn btn-primary" onclick="process()"><i class="fas ${tool.icon}"></i> ${tool.name}</button>`;
+    }
+    html += '<div class="result-box" id="resultBox"><i class="fas fa-check-circle"></i> Complete! <a id="dlLink" style="color:#FFD700;cursor:pointer;">Download</a></div>';
+    html += '</div>';
+    
+    // Guide
+    if (tool.guide.length > 0) {
+        html += '<div class="guide-section"><h2>📋 How to ' + tool.name + '</h2><div class="steps">';
+        tool.guide.forEach((s,i) => {
+            html += `<div class="step"><div class="step-number">${i+1}</div><div class="step-content"><h4>${s.title}</h4><p>${s.desc}</p></div></div>`;
+        });
+        html += '</div></div>';
+    }
+    
+    // FAQ
+    if (tool.faq.length > 0) {
+        html += '<div class="faq-section"><h2>❓ FAQ</h2>';
+        tool.faq.forEach(f => {
+            html += `<div class="faq-item" onclick="this.classList.toggle('active')"><h4><i class="fas fa-question-circle"></i> ${f.q}</h4><p>${f.a}</p></div>`;
+        });
+        html += '</div>';
+    }
+    
+    // Related
+    if (tool.related.length > 0) {
+        html += '<div class="related-section"><h2>🔗 Related Tools</h2><div class="related-grid">';
+        tool.related.forEach(r => {
+            const rt = getToolData(r);
+            html += `<a href="feature.html?tool=${r}" class="related-card"><i class="fas ${rt.icon}" style="color:${rt.iconColor};"></i><div><h4>${rt.name}</h4><small style="color:var(--gray);">${rt.cat}</small></div></a>`;
+        });
+        html += '</div></div>';
+    }
+    
+    document.getElementById('app').innerHTML = html;
+    
+    // Drag & Drop
+    setTimeout(() => {
+        const dz = document.querySelector('.upload-zone');
+        if (dz) {
+            dz.addEventListener('dragover', e => { e.preventDefault(); dz.style.borderColor='#FF6584'; });
+            dz.addEventListener('dragleave', () => { dz.style.borderColor='var(--primary)'; });
+            dz.addEventListener('drop', e => { e.preventDefault(); dz.style.borderColor='var(--primary)'; });
+        }
+    }, 300);
+}
+
+function process() {
+    const btn = document.querySelector('.btn-primary');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Processing...';
+    
+    setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fas fa-check"></i> Complete!`;
+        document.getElementById('resultBox').style.display = 'block';
+        document.getElementById('dlLink').onclick = () => showToast('Demo mode - Full processing coming soon! 🚀');
+        showToast('✅ Processing complete! (Demo mode)');
+        gtag('event', 'tool_used', { 'event_category': 'tool', 'event_label': getToolId() });
+    }, 1500);
+}
+
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+}
+
+window.process = process;
+window.showToast = showToast;
+
+renderPage();
+gtag('event', 'page_view', { 'event_category': 'tool_page', 'event_label': getToolId() });
+</script>
+</body>
+</html>
